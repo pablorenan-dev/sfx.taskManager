@@ -1,14 +1,14 @@
 import "./TaskList.css"
 
-function taskList(){
+function TaskList({list}){
     return (
-
-        <div className="task">
+        list.map((task) => (
+            <div className="task"  key={task.id}>
 
             <div>
 
-                <h1>Title</h1>
-                <p>Description</p>
+                <h1>{task.title}</h1>
+                <p>{task.description}</p>
 
             </div>
             <div>
@@ -17,7 +17,9 @@ function taskList(){
             </div>
         </div>
 
+        ))
+   
     );
 }
 
-export default taskList;
+export default TaskList;

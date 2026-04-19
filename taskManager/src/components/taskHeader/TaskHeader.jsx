@@ -1,6 +1,7 @@
 import "./TaskHeader.css"
 
-function taskHeader(){
+function TaskHeader(){
+
     return (
         <div className="header">
             <div>
@@ -13,10 +14,10 @@ function taskHeader(){
             </div>
             
             <button>
-                Submit
+                Submit 
             </button>
         </div>
     )
 }
 
-export default taskHeader;
+export default TaskHeader;

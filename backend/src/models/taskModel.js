@@ -1,7 +1,7 @@
 import pool from '../config/db.js';
 
 // listar todas as tarefas
-export const getAllTaks = async => {
+export const getAllTasks = async ()=> {
     const result = await pool.query('SELECT * FROM tasks');
     return result.rows;
 };
@@ -26,5 +26,5 @@ export const updateTask = async (id) => {
 
 // deleta a task pelo id
 export const deleteTask = async (id) => {
-    await pool.query('DELETE FROM tasks WHERE id = 1$', [id]);
+    await pool.query('DELETE FROM tasks WHERE id = $1', [id]);
 };

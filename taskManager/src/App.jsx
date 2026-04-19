@@ -19,9 +19,19 @@ function App() {
   //   return "fazer ainda"
   // };
 
+  const createTask = (title, description) =>{
+    fetch("http://localhost:3000/api/tasks", {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ title, description})
+    })
+    .then(res => res.json())
+    .then(data => setList([...list, data]));
+  };
+
  return (
     <div>
-      <TaskHeader></TaskHeader>
+      <TaskHeader createTask={createTask}></TaskHeader>
       <TaskList list={list}></TaskList>
     </div>
 

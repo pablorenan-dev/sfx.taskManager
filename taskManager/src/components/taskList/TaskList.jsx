@@ -1,9 +1,10 @@
 import "./TaskList.css"
 
 function TaskList({list}){
+
     return (
         list.map((task) => (
-            <div className="task"  key={task.id}>
+        <div className="task" key={task.id}>
 
             <div>
 

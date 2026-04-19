@@ -1,6 +1,6 @@
 import "./TaskList.css"
 
-function TaskList({list, changeStatusTask}){
+function TaskList({list, changeStatusTask, deleteTask}){
 
     return (
         list.map((task) => (
@@ -14,7 +14,7 @@ function TaskList({list, changeStatusTask}){
             </div>
             <div>
                 <button onClick={() => changeStatusTask(task.id)}>🟢</button>
-                <button>🔴</button>
+                <button onClick={() => deleteTask(task.id)}>🔴</button>
             </div>
         </div>
 

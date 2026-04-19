@@ -11,14 +11,10 @@ function App() {
       .then(res => res.json())
       .then(data => {
         setList(data);
-      console.log(data);
     });
   }, []);
 
-  // const addTask = () => {
-  //   return "fazer ainda"
-  // };
-
+  // cria uma task
   const createTask = (title, description) =>{
     fetch("http://localhost:3000/api/tasks", {
       method: 'POST',
@@ -29,8 +25,8 @@ function App() {
     .then(data => setList([...list, data]));
   };
 
+  // muda o completed da task, com a logica de toggle
   const changeStatusTask = (id) => {
-    console.log("chegou")
     fetch(`http://localhost:3000/api/tasks/${id}`, {
       method: 'PATCH'
     })
@@ -38,10 +34,19 @@ function App() {
     .then(updatedTask => setList(list.map(task => task.id == id ? updatedTask : task)));
   };
 
+  const deleteTask = (id) => {
+    fetch(`http://localhost:3000/api/tasks/${id}`, {
+      method: 'DELETE'
+    })
+    .then(() => {
+      setList(list.filter(task =>  task.id !== id));
+    });
+  };
+
  return (
     <div>
       <TaskHeader createTask={createTask}></TaskHeader>
-      <TaskList list={list} changeStatusTask={changeStatusTask}></TaskList>
+      <TaskList list={list} changeStatusTask={changeStatusTask} deleteTask={deleteTask}></TaskList>
     </div>
 
   );

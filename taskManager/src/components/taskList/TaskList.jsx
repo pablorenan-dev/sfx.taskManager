@@ -1,10 +1,10 @@
 import "./TaskList.css"
 
-function TaskList({list}){
+function TaskList({list, changeStatusTask}){
 
     return (
         list.map((task) => (
-        <div className="task" key={task.id}>
+        <div className={task.completed ? "task completed" : "task"} key={task.id}>
 
             <div>
 
@@ -13,7 +13,7 @@ function TaskList({list}){
 
             </div>
             <div>
-                <button>🟢</button>
+                <button onClick={() => changeStatusTask(task.id)}>🟢</button>
                 <button>🔴</button>
             </div>
         </div>

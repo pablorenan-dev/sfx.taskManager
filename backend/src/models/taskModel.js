@@ -15,7 +15,7 @@ export const createTask = async (title, description) => {
     return result.rows[0];
 };
 
-// atualiza se a task esta completa pelo id
+// atualiza se a task esta completa pelo id, com toggle, se for falso vira true, se for true vira falso
 export const updateTask = async (id) => {
     const result = await pool.query(
         'UPDATE tasks SET completed = NOT completed WHERE id = $1 RETURNING *',

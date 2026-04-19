@@ -29,10 +29,19 @@ function App() {
     .then(data => setList([...list, data]));
   };
 
+  const changeStatusTask = (id) => {
+    console.log("chegou")
+    fetch(`http://localhost:3000/api/tasks/${id}`, {
+      method: 'PATCH'
+    })
+    .then(res => res.json())
+    .then(updatedTask => setList(list.map(task => task.id == id ? updatedTask : task)));
+  };
+
  return (
     <div>
       <TaskHeader createTask={createTask}></TaskHeader>
-      <TaskList list={list}></TaskList>
+      <TaskList list={list} changeStatusTask={changeStatusTask}></TaskList>
     </div>
 
   );

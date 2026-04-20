@@ -59,7 +59,7 @@ npm run dev
 ```
 
 ## Variáveis de ambiente
-Veja o `.env.example` dentro da pasta `backend/`, para depois criar o seu .env
+Veja o `.env.example` dentro da pasta `backend/`, para depois criar o seu .env dentor da pasta `backend`
 
 ## Endpoints da API
 | Método | Rota | Descrição |

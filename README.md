@@ -78,3 +78,14 @@ PATCH /api/tasks/1
 
 ### Deletar tarefa
 DELETE /api/tasks/1
+
+## Rodando com Docker
+
+```bash
+docker-compose up --build
+```
+
+A stack completa (backend + banco de dados) sobe automaticamente.
+A tabela é criada automaticamente na primeira execução.
+
+> Certifique-se de ter o Docker Desktop instalado e rodando antes de executar o comando.

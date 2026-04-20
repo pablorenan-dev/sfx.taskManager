@@ -24,6 +24,7 @@ React, Node.js, Express, PostgreSQL, Jest
   created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 ```
+(também está no arquivo "database.sql" na root)
 
 ### Backend
 ```bash

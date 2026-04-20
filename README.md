@@ -12,9 +12,26 @@ React, Node.js, Express, PostgreSQL, Jest
 
 ## Instalação e execução
 
+## Rodando com Docker
+
+```bash
+docker-compose up --build
+```
+
+A stack completa (backend + banco de dados) sobe automaticamente.
+A tabela é criada automaticamente na primeira execução.
+
+> Certifique-se de ter o Docker Desktop instalado e rodando antes de executar o comando.
+
+Depois entre na pasta do taskManager pelo terminal, e rode os seguintes comandos para iniciar o site com o vite:
+```bash
+npm i
+npm run dev
+```
+## Rodando sem o Docker
 ### Banco de dados
-1. Crie o banco `db_task_manager`
-2. Execute o script SQL:
+1. Crie o banco `db_task_manager` em postgre
+2. Execute o script SQL para criar a table:
 ```sql
   CREATE TABLE tasks (
   id SERIAL PRIMARY KEY,
@@ -42,7 +59,7 @@ npm run dev
 ```
 
 ## Variáveis de ambiente
-Veja o `.env.example` dentro da pasta `backend/`
+Veja o `.env.example` dentro da pasta `backend/`, para depois criar o seu .env
 
 ## Endpoints da API
 | Método | Rota | Descrição |
@@ -52,11 +69,12 @@ Veja o `.env.example` dentro da pasta `backend/`
 | PATCH | /api/tasks/:id | Alterna status da tarefa |
 | DELETE | /api/tasks/:id | Deleta uma tarefa |
 
-## Testes com Jester
+## Testes com Jest
 ```bash
 cd backend
 npm test
 ```
+> Certifique-se de ter rodado o "npm i", e ter configurado o .env corretamente
 
 ## Exemplos de chamadas à API
 
@@ -78,14 +96,3 @@ PATCH /api/tasks/1
 
 ### Deletar tarefa
 DELETE /api/tasks/1
-
-## Rodando com Docker
-
-```bash
-docker-compose up --build
-```
-
-A stack completa (backend + banco de dados) sobe automaticamente.
-A tabela é criada automaticamente na primeira execução.
-
-> Certifique-se de ter o Docker Desktop instalado e rodando antes de executar o comando.

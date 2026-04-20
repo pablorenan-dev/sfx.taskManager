@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: db_task_manager
+    ports:
+      - "5432:5432"
+    volumes:
+      - type: bind
+        source: ./database.sql
+        target: /docker-entrypoint-initdb.d/database.sql
+
+  backend:
+    build: ./backend
+    ports:
+      - "3000:3000"
+    environment:
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_USER: postgres
+      DB_PASSWORD: admin
+      DB_NAME: db_task_manager
+      PORT: 3000
+    depends_on:
+      - db

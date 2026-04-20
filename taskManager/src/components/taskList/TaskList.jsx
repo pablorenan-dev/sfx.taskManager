@@ -11,7 +11,7 @@ function TaskList({list, changeStatusTask, deleteTask}){
 
                     <h1 className="task-title">• {task.title}</h1>
                     <p className="task-description">{task.description}</p>
-
+                    <span className="task-status">{task.completed ? "✅ Concluída" : "🕐 Pendente"}</span>
                 </div>
                 <div>
                     <button className="btn-actions" onClick={() => changeStatusTask(task.id)}>✅</button>

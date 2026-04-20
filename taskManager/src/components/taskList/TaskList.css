@@ -56,3 +56,13 @@
     align-items: flex-start;
     text-align: left;
 }
+
+.task-status {
+    font-size: 12px;
+    margin-top: 4px;
+    color: grey;
+}
+
+.completed .task-status {
+    color: rgb(33, 141, 0);
+}

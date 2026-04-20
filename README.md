@@ -52,7 +52,7 @@ Veja o `.env.example` dentro da pasta `backend/`
 | PATCH | /api/tasks/:id | Alterna status da tarefa |
 | DELETE | /api/tasks/:id | Deleta uma tarefa |
 
-## Testes
+## Testes com Jester
 ```bash
 cd backend
 npm test
